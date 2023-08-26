@@ -4,17 +4,13 @@ const app = express();
 const PORT = 8080; // port
 
 
-app.get('/', (req, res) => {
-
-  try {
-    res.send('Funcion')
-  } catch (error) {
-    console.log(`Error al acceder la ruta: ${error}`)
-  }
-})
+app.get('/empleados', (req, res) => res.send('Viendo empleados'));
+app.post('/empleados', (req, res) => res.send('Creando empleados'));
+app.put('/empleados', (req, res) => res.send('actualizando empleados'));
+app.delete('/empleados', (req, res) => res.send('Eliminando empleados'));
 
 
-// launch the server
+// running server
 app.listen(PORT, () => {
   console.log(`Server running on port: ${PORT}`);
 })
