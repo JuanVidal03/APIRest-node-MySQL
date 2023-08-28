@@ -3,21 +3,20 @@ import express from "express";
 const app = express();
 const PORT = 8080; // port
 
-// import db connection
-import { connection } from "./db/db.js";
 
-app.get('/ping', async (req, res) => {
 
-  const [result] = await connection.query('SELECT "pong" AS result');
-  res.json(result);
+// import routes
+import employeesRoutes from "./routes/employees.routes.js"; // employees route
+import indexRoutes from "./routes/index.routes.js"; // index route
 
-})
 
-app.get('/empleados', (req, res) => res.send('Viendo empleados'));
-app.post('/empleados', (req, res) => res.send('Creando empleados'));
-app.put('/empleados', (req, res) => res.send('actualizando empleados'));
-app.delete('/empleados', (req, res) => res.send('Eliminando empleados'));
 
+
+
+
+// using routes
+app.use(employeesRoutes);
+app.use(indexRoutes),
 
 // running server
 app.listen(PORT, () => {
