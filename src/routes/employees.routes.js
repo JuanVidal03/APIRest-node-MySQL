@@ -12,7 +12,7 @@ router.get('/empleado/:id', getEmployeeById); // one empoyee
 
 router.post('/empleados', createEmployee);
 router.put('/empleados', updateEmployee);
-router.delete('/empleados', deleteEmployee);
+router.delete('/empleado/:id', deleteEmployee);
 
 
 export default router;
