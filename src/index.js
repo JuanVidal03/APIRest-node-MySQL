@@ -9,7 +9,7 @@ import employeesRoutes from "./routes/employees.routes.js"; // employees route
 import indexRoutes from "./routes/index.routes.js"; // index route
 
 // using routes
-app.use(employeesRoutes);
+app.use('/api', employeesRoutes);
 app.use(indexRoutes),
 
 // running server
