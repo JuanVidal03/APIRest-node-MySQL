@@ -12,3 +12,11 @@ CREATE TABLE employee (
 );
 
 DESCRIBE employee;
+
+-- insert employees
+
+INSERT INTO employee VALUES
+  (1, 'Juan', 1200000),
+  (2, 'Yuliana', 2200000),
+  (3, 'María', 11200000),
+  (4, 'Camilo', 3000000);
