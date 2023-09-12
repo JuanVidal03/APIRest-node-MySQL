@@ -11,7 +11,9 @@ router.get('/empleados', getEmployees); // all empoyees
 router.get('/empleado/:id', getEmployeeById); // one empoyee
 
 router.post('/empleados', createEmployee);
-router.put('/empleados', updateEmployee);
+
+router.put('/empleado/:id', updateEmployee);
+
 router.delete('/empleado/:id', deleteEmployee);
 
 

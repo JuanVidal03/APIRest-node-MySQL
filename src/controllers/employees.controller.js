@@ -40,7 +40,22 @@ export const createEmployee = async (req, res) => {
 };
 
 // put employees
-export const updateEmployee = (req, res) => res.send('Actualizando empleados');
+export const updateEmployee = async (req, res) => {
+
+  // gettiong data from params and body
+  const employeeId = req.params.id;
+  const { name, salary } = req.body;
+
+  // updating employee
+  const [data] = await connection.query(`UPDATE employee SET name = "${name}", salary = ${salary} WHERE id = ${employeeId}`);
+
+  // get the employee updated
+  const [employeeUpdatedRow] = await connection.query(`SELECT * FROM employee WHERE id = ${employeeId}`);
+
+  // response
+  data.affectedRows ? res.json({ "employee updated": employeeUpdatedRow}) : res.status(404).json({"message": "There is no emplyee wiht that id"})
+
+};
 
 // delete employees
 export const deleteEmployee = async (req, res) => {
