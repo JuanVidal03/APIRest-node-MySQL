@@ -10,7 +10,14 @@ import indexRoutes from "./routes/index.routes.js"; // index route
 
 // using routes
 app.use('/api', employeesRoutes);
-app.use(indexRoutes),
+app.use(indexRoutes);
+
+// if the endpoint doesnt exist
+app.use((req, res, next) => {
+  res.status(404).json({
+    "message": "Endpoint not found"
+  });
+})
 
 // running server
 app.listen(PORT, () => {
