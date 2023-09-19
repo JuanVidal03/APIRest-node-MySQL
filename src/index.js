@@ -1,8 +1,10 @@
 // import dependencies
 import express from "express";
 const app = express();
-const PORT = 8080; // port
 app.use(express.json()); // allow use json format
+
+// enviroment variables
+import { PORT } from './config.js';
 
 // import routes
 import employeesRoutes from "./routes/employees.routes.js"; // employees route
